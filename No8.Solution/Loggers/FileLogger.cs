@@ -12,7 +12,7 @@ namespace No8.Solution.Loggers
     {
         public void Log(object sender, PrinterEventArgs args)
         {
-            using (StreamWriter writer = new StreamWriter(@"C:\Users\Алексей\ExtTraining.Summer.2018.5\No8.Solution\bin\Debug\log.txt", true, Encoding.UTF8))
+            using (StreamWriter writer = new StreamWriter("log.txt", true, Encoding.UTF8))
             {
                 writer.WriteLine($"LOG {DateTime.Now}: {args.Message}");
             }
@@ -20,7 +20,7 @@ namespace No8.Solution.Loggers
 
         public void Warn(string message)
         {
-            using (StreamWriter writer = new StreamWriter(@"C:\Users\Алексей\ExtTraining.Summer.2018.5\No8.Solution\bin\Debug\log.txt", true, Encoding.UTF8))
+            using (StreamWriter writer = new StreamWriter("log.txt", true, Encoding.UTF8))
             {
                 writer.WriteLine($"WARN {DateTime.Now}: {message}");
             }

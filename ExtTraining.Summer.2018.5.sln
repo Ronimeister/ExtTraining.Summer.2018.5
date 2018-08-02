@@ -11,11 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "No8.Solution.Console", "No8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "No8.Solution.Tests", "No8.Solution.Tests\No8.Solution.Tests.csproj", "{165118C0-B662-4290-8E7D-2CAF15E32A2D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{734633B6-CBD1-4C6D-BEBB-9955B643D31C}"
-	ProjectSection(SolutionItems) = preProject
-		..\ASP.NET MVC Training. Spring 2018\LabExam\LabExam-master\README.md = ..\ASP.NET MVC Training. Spring 2018\LabExam\LabExam-master\README.md
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
