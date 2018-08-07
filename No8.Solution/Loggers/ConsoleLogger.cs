@@ -19,16 +19,16 @@ namespace No8.Solution.Loggers
             Console.WriteLine($"WARN {DateTime.Now}: {message}");
         }
 
-        public void Register(PrinterManager manager)
+        public void Register(Printer printer)
         {
-            manager.PrintStarted += Log;
-            manager.PrintFinished += Log;
+            printer.PrintStarted += Log;
+            printer.PrintFinished += Log;
         }
 
-        public void Unregister(PrinterManager manager)
+        public void Unregister(Printer printer)
         {
-            manager.PrintStarted -= Log;
-            manager.PrintFinished -= Log;
+            printer.PrintStarted -= Log;
+            printer.PrintFinished -= Log;
         }
     }
 }

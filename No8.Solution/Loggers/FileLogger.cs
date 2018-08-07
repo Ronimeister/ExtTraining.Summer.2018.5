@@ -26,18 +26,16 @@ namespace No8.Solution.Loggers
             }
         }
 
-        public void Register(PrinterManager manager)
+        public void Register(Printer printer)
         {
-            manager.PrintStarted += Log;
-            manager.PrintFinished += Log;
+            printer.PrintStarted += Log;
+            printer.PrintFinished += Log;
         }
 
-        public void Unregister(PrinterManager manager)
+        public void Unregister(Printer printer)
         {
-            manager.PrintStarted -= Log;
-            manager.PrintFinished -= Log;
+            printer.PrintStarted -= Log;
+            printer.PrintFinished -= Log;
         }
     }
 }
-
-//C:\Users\Алексей\ExtTraining.Summer.2018.5\No8.Solution\bin\Debug\log.txt

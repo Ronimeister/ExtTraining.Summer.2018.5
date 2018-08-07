@@ -17,22 +17,10 @@ namespace No8.Solution
         public HashSet<Printer> Printers { get; }
         #endregion
 
-        #region Events
-        public event EventHandler<PrinterEventArgs> PrintStarted = delegate (object source, PrinterEventArgs args) { };
-        public event EventHandler<PrinterEventArgs> PrintFinished = delegate (object source, PrinterEventArgs args) { };
-
-        protected virtual void OnPrintStarted(object source, PrinterEventArgs args)
-            => PrintStarted(source, args);
-
-        protected virtual void OnPrintFinished(object source, PrinterEventArgs args)
-            => PrintFinished(source, args);
-        #endregion
-
         #region .ctors
         public PrinterManager(ILogger logger)
         {
             _logger = logger ?? throw new ArgumentNullException($"{nameof(logger)} can't be equal to null!");
-            _logger.Register(this);
             Printers = new HashSet<Printer>();
         }
         #endregion
@@ -56,6 +44,7 @@ namespace No8.Solution
                 throw new ArgumentException(exceptionMessage);
             }
 
+            _logger.Register(printer);
             Printers.Add(printer);
         }
 
@@ -110,9 +99,7 @@ namespace No8.Solution
                 o.ShowDialog();
                 using (var stream = File.OpenRead(o.FileName))
                 {
-                    OnPrintStarted(this, new PrinterEventArgs(printer, $"{printer.ToString()} start printing!"));
                     printer.Print(stream);
-                    OnPrintFinished(this, new PrinterEventArgs(printer, $"{printer.ToString()} finish printing!"));
                 }
             }
         }

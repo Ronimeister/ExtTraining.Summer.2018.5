@@ -12,7 +12,7 @@ namespace No8.Solution.Loggers
         void Log(object sender, PrinterEventArgs args);
         void Warn(string message);
 
-        void Register(PrinterManager manager);
-        void Unregister(PrinterManager manager);
+        void Register(Printer printer);
+        void Unregister(Printer printer);
     }
 }

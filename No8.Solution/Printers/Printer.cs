@@ -14,6 +14,17 @@ namespace No8.Solution.Printers
         public string Model { get; }
         #endregion
 
+        #region Events
+        public event EventHandler<PrinterEventArgs> PrintStarted = delegate (object source, PrinterEventArgs args) { };
+        public event EventHandler<PrinterEventArgs> PrintFinished = delegate (object source, PrinterEventArgs args) { };
+
+        protected virtual void OnPrintStarted(object source, PrinterEventArgs args)
+            => PrintStarted(source, args);
+
+        protected virtual void OnPrintFinished(object source, PrinterEventArgs args)
+            => PrintFinished(source, args);
+        #endregion
+
         #region .ctors
         public Printer(string name, string model)
         {
@@ -39,8 +50,10 @@ namespace No8.Solution.Printers
             {
                 throw new ArgumentNullException($"{nameof(stream)} can't be equal to null!");
             }
-            
+
+            OnPrintStarted(this, new PrinterEventArgs(this, $"{this.ToString()} start printing!"));
             PrintEmulation(stream);
+            OnPrintFinished(this, new PrinterEventArgs(this, $"{this.ToString()} finish printing!"));
         }
 
         public override int GetHashCode()
