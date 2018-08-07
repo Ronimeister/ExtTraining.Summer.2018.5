@@ -10,7 +10,7 @@ namespace No8.Solution.Printers
     public abstract class Printer : IEquatable<Printer>
     {
         #region Properties
-        public string Name { get; }
+        public abstract string Name { get; }
         public string Model { get; }
         #endregion
 
@@ -26,19 +26,20 @@ namespace No8.Solution.Printers
         #endregion
 
         #region .ctors
-        public Printer(string name, string model)
+        public Printer(string model)
         {
+            /*
             if (string.IsNullOrEmpty(name))
             {
                 throw new ArgumentException($"{nameof(name)} can't be equal to null or empty!");
-            }
+            }*/
 
             if (string.IsNullOrEmpty(model))
             {
                 throw new ArgumentException($"{nameof(model)} can't be equal to null or empty!");
             }
 
-            Name = name;
+            //Name = name;
             Model = model;
         }
         #endregion

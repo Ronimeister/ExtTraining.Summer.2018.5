@@ -82,13 +82,9 @@ namespace No8.Solution.Console
             if (key.Key == ConsoleKey.D1)
             {
                 System.Console.WriteLine();
-                System.Console.WriteLine("Enter printer name: ");
-                string name = System.Console.ReadLine();
-
-                System.Console.WriteLine();
                 System.Console.WriteLine("Enter printer model: ");
                 string model = System.Console.ReadLine();
-                manager.Add(new CanonPrinter(name, model));
+                manager.Add(new CanonPrinter(model));
 
                 System.Console.Clear();
                 System.Console.WriteLine("Printer have been succesfully added!");
@@ -97,13 +93,9 @@ namespace No8.Solution.Console
             if (key.Key == ConsoleKey.D2)
             {
                 System.Console.WriteLine();
-                System.Console.WriteLine("Enter printer name: ");
-                string name = System.Console.ReadLine();
-
-                System.Console.WriteLine();
                 System.Console.WriteLine("Enter printer model: ");
                 string model = System.Console.ReadLine();
-                manager.Add(new EpsonPrinter(name, model));
+                manager.Add(new EpsonPrinter(model));
 
                 System.Console.Clear();
                 System.Console.WriteLine("Printer have been succesfully added!");

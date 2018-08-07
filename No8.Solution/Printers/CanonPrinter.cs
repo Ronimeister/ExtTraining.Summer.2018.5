@@ -5,8 +5,10 @@ namespace No8.Solution.Printers
 {
     public class CanonPrinter : Printer
     {
-        public CanonPrinter(string name, string model) : base(name, model) { }
-         
+        public CanonPrinter(string model) : base(model) { }
+
+        public override string Name => "Canon";
+
         protected override void PrintEmulation(FileStream stream)
         {
             using (stream)

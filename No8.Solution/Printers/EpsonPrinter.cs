@@ -9,7 +9,9 @@ namespace No8.Solution.Printers
 {
     public class EpsonPrinter : Printer
     {
-        public EpsonPrinter(string name, string model) : base(name, model) { }
+        public EpsonPrinter(string model) : base(model) { }
+
+        public override string Name => "Epson";
 
         protected override void PrintEmulation(FileStream stream)
         {

@@ -54,7 +54,5 @@ namespace No8
         {
             File.AppendText("log.txt").Write(s);
         }
-
-        public static event PrinterDelegate OnPrinted;
     }
 }
