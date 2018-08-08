@@ -20,7 +20,6 @@ namespace No8.Solution.Loggers
             => instance.Value;
         #endregion
 
-
         #region Public logger API
         public void Log(object sender, PrinterEventArgs args)
         {

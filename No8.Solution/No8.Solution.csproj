@@ -47,6 +47,9 @@
     <Compile Include="PrinterManager.cs" />
     <Compile Include="Printers\CanonPrinter.cs" />
     <Compile Include="Printers\EpsonPrinter.cs" />
+    <Compile Include="Printers\Factories\AbstractPrinterFactory.cs" />
+    <Compile Include="Printers\Factories\CanonFactory.cs" />
+    <Compile Include="Printers\Factories\EpsonFactory.cs" />
     <Compile Include="Printers\Printer.cs" />
     <Compile Include="Printers\PrinterEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -54,5 +57,6 @@
   <ItemGroup>
     <Content Include="ToDo.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,5 +1,6 @@
 ﻿using No8.Solution.Loggers;
 using No8.Solution.Printers;
+using No8.Solution.Printers.Factories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -77,6 +78,7 @@ namespace No8.Solution.Console
             System.Console.WriteLine("2. Epson.");
 
             ConsoleKeyInfo key = System.Console.ReadKey();
+            AbstractPrinterFactory factory = null;
             System.Console.WriteLine();
 
             if (key.Key == ConsoleKey.D1)
@@ -84,7 +86,8 @@ namespace No8.Solution.Console
                 System.Console.WriteLine();
                 System.Console.WriteLine("Enter printer model: ");
                 string model = System.Console.ReadLine();
-                manager.Add(new CanonPrinter(model));
+                factory = new CanonFactory();
+                manager.Add(factory.CreateNew(model));
 
                 System.Console.Clear();
                 System.Console.WriteLine("Printer have been succesfully added!");
@@ -95,7 +98,8 @@ namespace No8.Solution.Console
                 System.Console.WriteLine();
                 System.Console.WriteLine("Enter printer model: ");
                 string model = System.Console.ReadLine();
-                manager.Add(new EpsonPrinter(model));
+                factory = new EpsonFactory();
+                manager.Add(factory.CreateNew(model));
 
                 System.Console.Clear();
                 System.Console.WriteLine("Printer have been succesfully added!");
