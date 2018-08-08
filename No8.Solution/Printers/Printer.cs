@@ -28,18 +28,11 @@ namespace No8.Solution.Printers
         #region .ctors
         public Printer(string model)
         {
-            /*
-            if (string.IsNullOrEmpty(name))
-            {
-                throw new ArgumentException($"{nameof(name)} can't be equal to null or empty!");
-            }*/
-
             if (string.IsNullOrEmpty(model))
             {
                 throw new ArgumentException($"{nameof(model)} can't be equal to null or empty!");
             }
 
-            //Name = name;
             Model = model;
         }
         #endregion

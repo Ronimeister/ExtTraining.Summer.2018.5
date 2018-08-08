@@ -11,7 +11,7 @@ namespace No8.Solution.Console
     class Program
     {
         private static bool isFinished = false;
-        private static readonly PrinterManager manager = new PrinterManager(new ConsoleLogger());
+        private static readonly PrinterManager manager = new PrinterManager(ConsoleLogger.GetInstance());
 
         [STAThread]
         static void Main(string[] args)

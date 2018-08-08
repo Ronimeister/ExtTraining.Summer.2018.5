@@ -10,6 +10,18 @@ namespace No8.Solution.Loggers
 {
     public class FileLogger : ILogger
     {
+        #region Singleton
+        private static readonly Lazy<FileLogger> instance =
+            new Lazy<FileLogger>(() => new FileLogger());
+
+        private FileLogger() { }
+
+        public static FileLogger GetInstance()
+            => instance.Value;
+        #endregion
+
+
+        #region Public logger API
         public void Log(object sender, PrinterEventArgs args)
         {
             using (StreamWriter writer = new StreamWriter("log.txt", true, Encoding.UTF8))
@@ -25,7 +37,9 @@ namespace No8.Solution.Loggers
                 writer.WriteLine($"WARN {DateTime.Now}: {message}");
             }
         }
+        #endregion
 
+        #region Public events API
         public void Register(Printer printer)
         {
             printer.PrintStarted += Log;
@@ -37,5 +51,6 @@ namespace No8.Solution.Loggers
             printer.PrintStarted -= Log;
             printer.PrintFinished -= Log;
         }
+        #endregion
     }
 }
